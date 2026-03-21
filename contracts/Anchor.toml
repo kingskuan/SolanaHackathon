@@ -1,0 +1,6 @@
+[programs.localnet]
+chain_will = "<PROGRAM_PUBKEY_PLACEHOLDER>"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
