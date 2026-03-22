@@ -1,0 +1,30 @@
+name: Deploy Anchor to Devnet
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update && sudo apt-get install -y build-essential pkg-config libudev-dev llvm clang
+          curl https://sh.rustup.rs -sSf | sh -s -- -y
+          source $HOME/.cargo/env
+          rustup component add rustfmt
+      - name: Install Solana & Anchor
+        run: |
+          sh -c "(curl -sSfL https://release.solana.com/v1.17.10/install | sh)"
+          export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+          npm install -g @project-serum/anchor-cli
+      - name: Build and Deploy
+        env:
+          ANCHOR_WALLET: ${{ secrets.SOLANA_KEYPAIR }}
+        run: |
+          cd contracts
+          anchor build
+          anchor deploy --provider.cluster devnet
+
