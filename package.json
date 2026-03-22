@@ -1,0 +1,26 @@
+{
+  "name": "chain-will-agent",
+  "version": "1.0.0",
+  "description": "Chain Will — Agent-based On-chain Inheritance",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingskuan/SolanaHackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingskuan/SolanaHackathon/issues"
+  },
+  "homepage": "https://github.com/kingskuan/SolanaHackathon#readme",
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4"
+  }
+}
